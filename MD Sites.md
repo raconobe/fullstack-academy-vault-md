@@ -1233,3 +1233,470 @@ YouTube · Roel Van de Paar
 Ubuntu: rsync --delete and --exclude
 
 YouTube · Roel Van de Paar
+
+
+
+---
+
+
+
+The reason those instructions failed is because **Quartz and Obsidian Git work differently than a standard Obsidian setup**:
+
+  
+
+1. **You are building a Quartz site**, which means your repository is the **Quartz site folder** (`fullstack-academy-site-quartz`), **NOT** your raw Obsidian vault folder.
+    
+      
+    
+2. The `obsidian-git` plugin needs to point to the **Quartz repository**, or you need to set up Git inside the Quartz directory itself!
+    
+      
+    
+
+Here is how to set this up correctly using your specific SSH key (`id_ed25519_raco`) and repository name (`fullstack-academy-site-quartz`).
+
+  
+
+## Part 1: Where to put `fullstack-academy-site-quartz` and link Git
+
+You will set up Git **inside your Quartz project folder** on Linux (`/home/rco/Desktop/fullstack-academy-site-quartz/quartz`).
+
+  
+
+Run these exact commands in your terminal:
+
+  
+
+Bash
+
+```
+# 1. Open your Quartz project folder
+cd /home/rco/Desktop/fullstack-academy-site-quartz/quartz
+
+# 2. Initialize Git if it isn't already a git repo
+git init
+
+# 3. Tell Git to use your specific SSH key for this repository
+git config core.sshCommand "ssh -i ~/.ssh/id_ed25519_raco -o IdentitiesOnly=yes"
+
+# 4. Link your local Quartz site to your GitHub repository
+# (Replace YOUR_GITHUB_USERNAME with your real GitHub account name)
+git remote add origin git@github.com:YOUR_GITHUB_USERNAME/fullstack-academy-site-quartz.git
+
+# 5. Set branch name and make initial commit
+git branch -M main
+git add .
+git commit -m "feat: initial quartz site setup"
+
+# 6. Push to GitHub
+git push -u origin main
+```
+
+_(Note: If you already have `origin` set up, run `git remote set-url origin git@github.com:YOUR_GITHUB_USERNAME/fullstack-academy-site-quartz.git` instead)._
+
+  
+
+## Part 2: How your Obsidian Sync fits in
+
+Since your main Obsidian notes live in `/home/rco/Desktop/FullStack-Academy-Vault-MD/`, you **do not** need the `obsidian-git` plugin to push the vault directly.
+
+  
+
+Instead, use the `.sh` script you built earlier! It syncs your raw notes into Quartz and pushes everything to GitHub in one command:
+
+  
+
+Create or update your `.sh` script (e.g., `publish.sh`):
+
+  
+
+Bash
+
+```
+#!/bin/bash
+
+VAULT_PATH="$HOME/Desktop/FullStack-Academy-Vault-MD"
+QUARTZ_DIR="$HOME/Desktop/fullstack-academy-site-quartz/quartz"
+
+# 1. Sync Obsidian files into Quartz
+echo "🔄 Syncing Obsidian notes into Quartz..."
+rsync -av --delete \
+  --exclude='.obsidian' \
+  --exclude='.git' \
+  --exclude='/*.*' \
+  "$VAULT_PATH/" \
+  "$QUARTZ_DIR/content/"
+
+# 2. Go to Quartz and configure SSH Key
+cd "$QUARTZ_DIR" || exit
+git config core.sshCommand "ssh -i ~/.ssh/id_ed25519_raco -o IdentitiesOnly=yes"
+
+# 3. Commit and push to GitHub
+echo "🚀 Pushing changes to GitHub..."
+git add .
+git commit -m "build: update quartz content $(date +'%Y-%m-%d %H:%M')"
+git push origin main
+```
+
+## Summary of the Workflow
+
+1. You write notes in **Obsidian**.
+    
+      
+    
+2. When you are ready to publish, run:
+    
+      
+    
+    Bash
+    
+    ```
+    ./publish.sh
+    ```
+    
+1. The script will automatically copy your updated notes into Quartz, apply your custom SSH key (`id_ed25519_raco`), and push your changes to your `fullstack-academy-site-quartz` repository on GitHub!
+
+
+
+
+---
+
+
+The reason GitHub is asking for a **Username** is because your current `origin` remote URL is configured to use **HTTPS** (`[https://github.com/](https://github.com/)...`) instead of **SSH** (`git@github.com:...`).
+
+  
+
+When Git uses HTTPS, it bypasses your SSH key entirely and prompts for credentials.
+
+  
+
+Here is how to fix it in 2 simple commands:
+
+  
+
+### Step 1: Change the Remote URL to SSH
+
+Run this command inside your `/home/rco/Desktop/fullstack-academy-site-quartz/quartz` directory:
+
+  
+
+Bash
+
+```
+git remote set-url origin git@github.com:raconobe/fullstack-academy-site-quartz.git
+```
+
+> **Why this fixes it:** `git remote add` failed earlier because `origin` already existed with an HTTPS URL. `git remote set-url` replaces that URL with your SSH address so Git uses your `id_ed25519_raco` key!
+> 
+>   
+
+### Step 2: Push to GitHub
+
+Now try pushing again:
+
+  
+
+Bash
+
+```
+git push -u origin main
+```
+
+Git will now authenticate silently using your `~/.ssh/id_ed25519_raco` key without asking for a username or password!
+
+  
+
+### How to verify your remote is set correctly
+
+If you want to double-check that Git is pointing to the SSH URL, run:
+
+  
+
+Bash
+
+```
+git remote -v
+```
+
+It should display:
+
+Plaintext
+
+```
+origin  git@github.com:raconobe/fullstack-academy-site-quartz.git (fetch)
+origin  git@github.com:raconobe/fullstack-academy-site-quartz.git (push)
+```
+
+
+
+
+---
+
+
+Yes, running **`git push`** will work!
+
+  
+
+Because you ran `git push -u origin main` during your setup, the **`-u`** flag (short for `--set-upstream`) permanently linked your local `main` branch to `origin/main`.
+
+  
+
+From now on, whenever you are on your `main` branch, you can simply type:
+
+  
+
+Bash
+
+```
+git push
+```
+
+Git will automatically know to send your commits to **`origin`** on the **`main`** branch using your SSH key (`id_ed25519_raco`).
+
+  
+
+### Quick Reference
+
+- **`git push`**: Pushes your latest commits to `origin main` automatically.
+    
+      
+    
+- **`git push origin main`**: Explicitly states where to push (does the exact same thing).
+    
+      
+    
+- **`git status`**: Shows how many commits you are ahead of `origin` before you push.
+
+
+----
+
+
+Here are the exact steps to connect a **new local project folder** to a **new GitHub repository** using the same SSH key (`id_ed25519_raco`).
+
+  
+
+### Step-by-Step Guide for a New Repository
+
+Replace **`NEW_REPO_NAME`** with the name of your new GitHub repository (and adjust your folder path accordingly).
+
+  
+
+#### Step 1: Open your new project folder in terminal
+
+Bash
+
+```
+cd ~/Desktop/YOUR_NEW_PROJECT_FOLDER
+```
+
+#### Step 2: Initialize Git inside the folder
+
+Bash
+
+```
+git init
+```
+
+#### Step 3: Tell Git to use your `id_ed25519_raco` SSH key
+
+Bash
+
+```
+git config core.sshCommand "ssh -i ~/.ssh/id_ed25519_raco -o IdentitiesOnly=yes"
+```
+
+#### Step 4: Link your local folder to your new GitHub repository
+
+Bash
+
+```
+git remote add origin git@github.com:raconobe/NEW_REPO_NAME.git
+```
+
+#### Step 5: Rename main branch, stage, commit, and push
+
+Bash
+
+```
+git branch -M main
+git add .
+git commit -m "feat: initial commit"
+git push -u origin main
+```
+
+### Quick Cheat Sheet / Script Template
+
+If you want to create a small helper script or copy-paste block whenever you create a new repository in the future:
+
+  
+
+Bash
+
+```
+#!/bin/bash
+# Usage: Run inside your new project directory
+
+REPO_NAME="NEW_REPO_NAME" # Change this
+
+git init
+git config core.sshCommand "ssh -i ~/.ssh/id_ed25519_raco -o IdentitiesOnly=yes"
+git remote add origin "git@github.com:raconobe/${REPO_NAME}.git"
+git branch -M main
+git add .
+git commit -m "feat: initial commit"
+git push -u origin main
+```
+
+Once the initial `git push -u origin main` completes for a project, you can simply type `git push` for all future updates in that repository!
+
+
+
+
+
+---
+
+
+**Yes, exactly!**
+
+  
+
+The setup commands (`git init`, `git config`, `git remote add`, `git branch -M`, and `-u origin main`) are **one-time setup steps** needed only when connecting a fresh folder to a new GitHub repository for the very first time.
+
+  
+
+Once a repository is initialized and linked, any subsequent updates only require three basic steps:
+
+  
+
+1. **Stage changes:** `git add .`
+    
+      
+    
+2. **Commit changes:** `git commit -m "your update message"`
+    
+      
+    
+3. **Push to GitHub:** `git push`
+    
+      
+    
+
+### Your Daily Update Script
+
+For daily syncs or updates on an existing repository, your `.sh` script simplifies to this:
+
+  
+
+Bash
+
+```
+#!/bin/bash
+
+# Stage all new and modified files
+git add .
+
+# Create a commit with a timestamp
+git commit -m "docs: update notes $(date +'%Y-%m-%d %H:%M')"
+
+# Push straight to main branch
+git push
+```
+
+### Comparison of Workflow Types
+
+|**Action**|**Commands Needed**|**When to Use**|
+|---|---|---|
+|**First-Time Setup**|`git init`<br><br>  <br>  <br><br>`git config core.sshCommand ...`<br><br>  <br>  <br><br>`git remote add origin ...`<br><br>  <br>  <br><br>`git branch -M main`<br><br>  <br>  <br><br>`git add .`<br><br>  <br>  <br><br>`git commit -m "initial commit"`<br><br>  <br>  <br><br>`git push -u origin main`|Once per new project/repository.|
+|**Daily Updates**|`git add .`<br><br>  <br>  <br><br>`git commit -m "your message"`<br><br>  <br>  <br><br>`git push`|Anytime you add, edit, or delete notes.|
+
+Now you can just run `git add .`, `git commit -m "..."`, and `git push` (or save them inside a quick sync script) whenever you want to update GitHub!
+
+
+
+
+---
+
+Yes, exactly! If you write a generic script that checks if there are changes and automatically adds, commits, and pushes them, **it works for any Git repository** on your system.
+
+  
+
+Here is a universal "one-click" sync script that you can drop into _any_ project folder (whether it's your Quartz site, your Obsidian vault, or a coding project). It checks if anything has changed, prompts you for a commit message (or uses a default one), and pushes safely.
+
+  
+
+### The Universal Sync Script (`sync.sh`)
+
+Create a file named `sync.sh` inside any project folder:
+
+  
+
+Bash
+
+```
+#!/bin/bash
+
+# 1. Check if there are any changes (modified, new, or deleted files)
+if [[ -z $(git status -s) ]]; then
+    echo "✨ Everything is already up to date! No changes to push."
+    exit 0
+fi
+
+# 2. Show status so you can see what changed
+echo "📂 Changes detected:"
+git status -s
+
+# 3. Stage all changes
+git add .
+
+# 4. Commit with a message (uses today's date/time if you don't provide one)
+if [ -z "$1" ]; then
+    COMMIT_MSG="auto-sync: update files $(date +'%Y-%m-%d %H:%M')"
+else
+    COMMIT_MSG="$1"
+fi
+
+git commit -m "$COMMIT_MSG"
+
+# 5. Push to GitHub using your configured SSH key
+echo "🚀 Pushing to GitHub..."
+git push
+
+echo "✅ Sync complete!"
+```
+
+### How to use it anywhere:
+
+1. Save it as `sync.sh` inside the root of **any** git repository folder.
+    
+      
+    
+2. Make it executable once:
+    
+      
+    
+    Bash
+    
+    ```
+    chmod +x sync.sh
+    ```
+    
+3. Run it whenever you want to push updates:
+    
+      
+    - **With a custom message:** `./sync.sh "feat: added new study notes"`
+        
+          
+        
+    - **With a default automated timestamp message:** `./sync.sh`
+        
+          
+        
+
+If there are no changes, it safely stops and tells you everything is clean. If there are changes, it handles staging, committing, and pushing in one smooth motion!
+
+
+
+
+
+
+
