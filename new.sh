@@ -3,6 +3,8 @@
 # 1. Check if there are any changes (modified, new, or deleted files)
 if [[ -z $(git status -s) ]]; then
     echo "✨ Everything is already up to date! No changes to push."
+    echo ""
+    read -p "Press [Enter] key to close this window..."
     exit 0
 fi
 
@@ -26,4 +28,6 @@ git commit -m "$COMMIT_MSG"
 echo "🚀 Pushing to GitHub..."
 git push
 
-echo "✅ Sync complete!"    
+echo "✅ Sync complete!"
+echo ""
+read -p "Press [Enter] key to close this window..."   
