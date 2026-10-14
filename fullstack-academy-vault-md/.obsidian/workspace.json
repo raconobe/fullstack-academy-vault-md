@@ -1,0 +1,230 @@
+{
+  "main": {
+    "id": "145115d1937f2850",
+    "type": "split",
+    "children": [
+      {
+        "id": "094a01aa017ee82c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "76a23f5b51258076",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "856eef7fa3f3e62f",
+    "type": "split",
+    "children": [
+      {
+        "id": "d5dc4b53c06411e1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "40aab610eaa790bb",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "2c70e22b55021ed8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "ea8ef28776722027",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "d89fa8c7f8d5dc20",
+    "type": "split",
+    "children": [
+      {
+        "id": "74c9b498f185c42a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8511e9756f80248c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Untitled.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "593c33c48cbcb044",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Untitled.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "4794a4b9909d5cd1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "0aeaa6e2906940d6",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "4a4f7d8076cd77d5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Untitled.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          },
+          {
+            "id": "d70961324518dff4",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "Untitled.md"
+              },
+              "icon": "lucide-info",
+              "title": "File properties"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "76a23f5b51258076",
+  "lastOpenFiles": [
+    "01_Languages/01-Java-Course/Ch01 - Introduction & Setup.md",
+    "01_Languages/01-Java-Course/01-JAVA-index.md",
+    "01_Languages/01-Java-Course/00-Java-Course Tracker.md",
+    "Templates/00-Course Tracker Template.md.md",
+    "Templates/00 - Master Dashboard.md.md",
+    "Templates/70 - Solutions & Practice-Ex - Java OOP Bank.md.md",
+    "Notes/Frontend.md",
+    "01_Languages/01-Java-Course/Index.md",
+    "Git/Git.md",
+    "Templates/structure.md",
+    "Notes/Linux-os.md",
+    "Notes/N.md",
+    "Notes/Welcome.md",
+    "Notes/Repositories Names.md",
+    "Notes/obsidian alternative.md",
+    "Untitled.md",
+    "Templates/40 - Software Design-Design Patterns.md.md",
+    "Notes/linux.md",
+    "Notes",
+    "Git",
+    "Templates",
+    "01_Languages/01-Java-Course",
+    "01_Languages"
+  ]
+}
