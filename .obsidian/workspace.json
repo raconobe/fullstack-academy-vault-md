@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MD Sites.md",
+                "file": "fullstack-academy-vault-md/Git/Git.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MD Sites"
+              "title": "Git"
             }
           }
         ]
@@ -187,9 +187,10 @@
   },
   "active": "bfbb24d2d960f9ea",
   "lastOpenFiles": [
+    "Java resourse.md",
+    "MD Sites.md",
     "fullstack-academy-vault-md/Git/Git.md",
     "d.sh",
-    "MD Sites.md",
     "sync-quartz.sh",
     "fullstack-academy-vault-md/Untitled.md",
     "FullStack-Academy-md/Untitled.md",
