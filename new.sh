@@ -26,4 +26,4 @@ git commit -m "$COMMIT_MSG"
 echo "🚀 Pushing to GitHub..."
 git push
 
-echo "✅ Sync complete!"
+echo "✅ Sync complete!"    
