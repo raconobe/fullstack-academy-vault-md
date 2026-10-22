@@ -1,7 +1,6 @@
+# 📚 Learning  Tracker
 
-
-Here is a clean Markdown structure designed for tracking course modules, key takeaways, and progress. Below the template, you will also find top recommended project-based platforms and YouTube channels tailored for full-stack, PHP, JavaScript, and backend development.
-
+This Markdown file is  designed for tracking course modules, key takeaways, and progress. 
   
 
 ### Course Master Tracking File (`README.md` or `COURSE_NOTES.md`)

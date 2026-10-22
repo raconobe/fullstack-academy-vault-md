@@ -69,16 +69,55 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled 3.md",
+                "file": "Usar/course_project_tracker (1).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled 3"
+              "title": "course_project_tracker (1)"
+            }
+          },
+          {
+            "id": "5be2248c8057a80e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Usar/Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "cd252970ed894d5a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Course Tracker Def.md",
+                "mode": "source",
+                "source": true,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Course Tracker Def"
+            }
+          },
+          {
+            "id": "bdd74f8af341aeb0",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -242,8 +281,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "59bc301343a16bdd",
+  "active": "cd252970ed894d5a",
   "lastOpenFiles": [
+    "Template/Untitled.md",
+    "Template/gemini-code-1792520703303.md",
+    "Template/course_project_tracker (1).md",
+    "Course Tracker Def.md",
+    "Usar/gemini-code-1792520703303.md",
+    "Usar/framework_testing_installation_log.md",
+    "Usar/Courses.md",
+    "Usar/course_project_tracker (1).md",
+    "Usar/Untitled.md",
     "course_project_tracker (1).md",
     "framework_testing_installation_log.md",
     "Untitled 2.md",
@@ -261,16 +309,7 @@
     "PHP config  1.md",
     "VS CODE + PHP.md",
     "FRAMEWORK II.md",
-    "JAVA.md",
-    "Frameworks.md",
-    "Java Resources.md",
-    "Untitled.md",
-    "LEarning 1.md",
-    "fullstack-academy-vault-md/01_Languages/01-Java-Course/Ch01 - Introduction & Setup.md",
-    "fullstack-academy-vault-md/Git/Git.md",
     "Untitled",
-    "fullstack-academy-vault-md/01_Languages/01-Java-Course/00-Java-Course Tracker.md",
-    "fullstack-academy-vault-md/01_Languages/01-Java-Course/01-JAVA-index.md",
     "d.sh",
     "sync-quartz.sh",
     "FullStack-Academy-Vault-MD/01_Languages/01-Java-Course",
