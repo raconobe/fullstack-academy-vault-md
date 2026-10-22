@@ -98,7 +98,7 @@
               "type": "markdown",
               "state": {
                 "file": "Course Tracker Def.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true,
                 "backlinks": false
               },
@@ -107,17 +107,35 @@
             }
           },
           {
+            "id": "2b436e6cfc94e3be",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "patform learnning.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "patform learnning"
+            }
+          },
+          {
             "id": "bdd74f8af341aeb0",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "configure vs code + js html `css.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "configure vs code + js html `css"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -195,6 +213,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "patform learnning.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -267,7 +286,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 200,
     "collapsed": true
   },
   "left-ribbon": {
@@ -281,42 +300,43 @@
       "bases:Create new base": false
     }
   },
-  "active": "cd252970ed894d5a",
+  "active": "2b436e6cfc94e3be",
   "lastOpenFiles": [
-    "Template/Untitled.md",
-    "Template/gemini-code-1792520703303.md",
-    "Template/course_project_tracker (1).md",
-    "Course Tracker Def.md",
-    "Usar/gemini-code-1792520703303.md",
-    "Usar/framework_testing_installation_log.md",
-    "Usar/Courses.md",
-    "Usar/course_project_tracker (1).md",
-    "Usar/Untitled.md",
-    "course_project_tracker (1).md",
-    "framework_testing_installation_log.md",
-    "Untitled 2.md",
-    "Untitled 3.md",
-    "html  include.md",
-    "Encapsulate html.md",
-    "Tutorials para hacer google.md",
-    "Framework II.md",
-    "VITE - Express.md",
-    "Untitled 1.md",
-    "apache HTTP.md",
-    "FrameWork.md",
-    "Framework III.md",
-    "Framework IV.md",
-    "PHP config  1.md",
-    "VS CODE + PHP.md",
-    "FRAMEWORK II.md",
-    "Untitled",
-    "d.sh",
-    "sync-quartz.sh",
-    "FullStack-Academy-Vault-MD/01_Languages/01-Java-Course",
-    "FullStack-Academy-Vault-MD/Templates",
-    "FullStack-Academy-Vault-MD/Notes",
-    "FullStack-Academy-Vault-MD/Git",
-    "FullStack-Academy-Vault-MD/01_Languages",
-    "FullStack-Academy-Vault-MD"
+    "my-projec/node_modules/eslint/lib/languages/js/source-code/token-store/utils.js",
+    "my-projec/node_modules/eslint/lib/languages/js/source-code/token-store/skip-cursor.js",
+    "my-projec/node_modules/eslint/lib/languages/js/source-code/token-store/padded-token-cursor.js",
+    "my-projec/node_modules/eslint/lib/languages/js/source-code/token-store/limit-cursor.js",
+    "my-projec/node_modules/eslint/lib/languages/js/source-code/token-store/index.js",
+    "my-projec/node_modules/eslint/lib/languages/js/source-code/token-store/forward-token-cursor.js",
+    "my-projec/node_modules/eslint/lib/languages/js/source-code/token-store/forward-token-comment-cursor.js",
+    "my-projec/node_modules/eslint/lib/languages/js/source-code/token-store/filter-cursor.js",
+    "my-projec/node_modules/eslint/lib/languages/js/source-code/token-store/decorative-cursor.js",
+    "my-projec/node_modules/eslint/lib/languages/js/source-code/token-store/cursors.js",
+    "my-projec/node_modules/eslint/lib/languages/js/source-code/token-store/cursor.js",
+    "my-projec/node_modules/@eslint-community/eslint-utils/node_modules/eslint-visitor-keys/README.md",
+    "my-projec/node_modules/qified/node_modules/hookified/README.md",
+    "my-projec/node_modules/ajv/lib/dotjs/README.md",
+    "my-projec/node_modules/flatted/golang/README.md",
+    "my-projec/node_modules/@types/estree/README.md",
+    "my-projec/node_modules/@types/json-schema/README.md",
+    "my-projec/node_modules/@types/esrecurse/README.md",
+    "my-projec/node_modules/@humanwhocodes/retry/README.md",
+    "my-projec/node_modules/@humanwhocodes/module-importer/README.md",
+    "my-projec/node_modules/@humanwhocodes/module-importer/CHANGELOG.md",
+    "my-projec/node_modules/@keyv/serialize/README.md",
+    "my-projec/node_modules/@keyv/bigmap/README.md",
+    "my-projec/node_modules/@humanfs/types/README.md",
+    "my-projec/node_modules/@humanfs/types/CHANGELOG.md",
+    "my-projec/node_modules/@humanfs/node/README.md",
+    "my-projec/node_modules/@humanfs/core/README.md",
+    "my-projec/node_modules/@eslint-community/regexpp/README.md",
+    "my-projec/node_modules/@eslint-community/eslint-utils/README.md",
+    "my-projec/node_modules/@cacheable/utils/README.md",
+    "my-projec/node_modules/@cacheable/memory/README.md",
+    "my-projec/node_modules/@eslint/plugin-kit/README.md",
+    "my-projec/node_modules/@eslint/object-schema/README.md",
+    "my-projec/node_modules/@eslint/js/README.md",
+    "my-projec/node_modules/@eslint/core/README.md",
+    "my-projec/node_modules/@eslint/config-helpers/README.md"
   ]
 }

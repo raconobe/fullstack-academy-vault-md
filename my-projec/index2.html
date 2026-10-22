@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <!-- In <head> -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <body>
+    <h1>Include Demo</h1>
+
+    <!-- This empty div will be replaced by the partial -->
+    <div id="slot-header"></div>
+
+    <p>Content between the includes.</p>
+    <div id="slot-cards"></div>
+
+    <!-- In <body> -->
+    <div id="slot-content"></div>
+
+    <div id="slot-footer"></div>
+
+    <script type="module">
+      // ✅ After — each include is independent, errors are visible
+      async function include(id, path) {
+        const el = document.getElementById(id);
+        try {
+          const res = await fetch(path);
+          if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+          el.innerHTML = await res.text();
+        } catch (err) {
+          el.innerHTML = `
+      <div style="background:#fee; border:1px solid #fcc; padding:0.5rem; color:#a00;">
+        ⚠️ Failed to load <code>${path}</code>: ${err.message}
+      </div>
+    `;
+          console.error(`[include] ${path}`, err);
+        }
+      }
+
+      // Load JSON and use it
+      async function loadJSON(path) {
+        const res = await fetch(path);
+        return res.json();
+      }
+
+      // Render cards from JSON data
+      async function renderCards() {
+        const data = await loadJSON("data/cards.json");
+        const el = document.getElementById("slot-cards");
+        el.innerHTML = data
+          .map(
+            (card) => `
+      <div style="border:1px solid #ccc; padding:1rem; margin:0.5rem 0; border-radius:4px;">
+        <strong>${card.title}</strong>
+        <p>${card.body}</p>
+      </div>
+    `,
+          )
+          .join("");
+      }
+
+      // Add to your script
+      async function loadMarkdown(path) {
+        const res = await fetch(path);
+        const text = await res.text();
+        return marked.parse(text); // converts markdown → HTML
+      }
+
+      async function renderContent() {
+        const el = document.getElementById("slot-content");
+        el.innerHTML = await loadMarkdown("content/about.md");
+      }
+
+      // Add to boot:
+      renderContent();
+
+      // Boot
+      include("slot-header", "partials/header.html");
+      include("slot-footer", "partials/footer.html");
+      renderCards();
+    </script>
+  </body>
+</html>

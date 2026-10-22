@@ -1,0 +1,226 @@
+/* style.css — add a comment at the top as a manifest */
+/*
+  Classes used by JS:
+  .card, .card--featured, .card--new, .card--draft
+  .card__tag, .card__title, .card__body
+  .nav, .theme-toggle, .site-name
+  .slot, .slot-cards, .slot-content, .slot-related
+  .include-error, .include-missing
+  .content, .md-h1, .md-h2, .md-h3, .md-p, .md-quote, .md-code, .md-hr, .code-block
+*/   
+
+/* ─── Variables ─────────────────────────────────────────── */
+:root {
+  --primary: #0066cc;
+  --primary-light: #e8f0fe;
+  --text: #222;
+  --text-muted: #666;
+  --border: #ddd;
+  --bg: #fff;
+  --bg-alt: #f5f5f5;
+  --accent: #1a73e8;
+  --error-bg: #fee;
+  --error-border: #fcc;
+  --error-text: #a00;
+  --warn-bg: #fff8e1;
+  --warn-border: #ffe082;
+  --warn-text: #795548;
+  --font: system-ui, -apple-system, sans-serif;
+  --radius: 6px;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+}
+
+/* ─── Dark theme ────────────────────────────────────────── */
+html.dark {
+  --text: #e0e0e0;
+  --text-muted: #aaa;
+  --bg: #111;
+  --bg-alt: #1a1a1a;
+  --border: #333;
+  --primary: #64b5f6;
+  --primary-light: #1a2a3a;
+  --accent: #64b5f6;
+}
+
+/* ─── Base ──────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-md);
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* ─── Transitions ───────────────────────────────────────── */
+body, header, footer, .card {
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* ─── Header / Footer ───────────────────────────────────── */
+header, footer {
+  background: var(--bg-alt);
+  padding: var(--space-md) 1.5rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.site-name { font-weight: 700; }
+
+.nav {
+  display: flex;
+  gap: 1rem;  /* ← THIS fixes the spacing */
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.nav a:hover { text-decoration: underline; }
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text);
+  margin-left: auto;  /* ← pushes button to the right */
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+/* ─── Slots ─────────────────────────────────────────────── */
+.slot {
+  min-height: 60px;
+  background: var(--bg-alt);
+  border-radius: var(--radius);
+  margin: var(--space-sm) 0;
+}
+
+.slot-cards   { min-height: 200px; }
+.slot-content { min-height: 100px; }
+.slot-related { min-height: 80px; }
+
+/* ─── Cards ─────────────────────────────────────────────── */
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-md) calc(var(--space-md) + 0.25rem);
+  margin-bottom: 0.75rem;
+}
+
+.card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+
+.card--featured { border-left: 3px solid var(--accent); }
+.card--new      { border-left: 3px solid #2e7d32; }
+.card--draft    { opacity: 0.6; }
+
+.card__tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  background: var(--primary-light);
+  color: var(--accent);
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-bottom: 0.4rem;
+}
+
+.card__title { margin: 0.3rem 0; }
+.card__body  { margin: 0; color: var(--text-muted); }
+
+/* ─── Errors ────────────────────────────────────────────── */
+.include-error {
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  color: var(--error-text);
+  padding: var(--space-sm) 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+}
+
+.include-missing {
+  background: var(--warn-bg);
+  border: 1px solid var(--warn-border);
+  color: var(--warn-text);
+  padding: var(--space-sm) 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* ─── Markdown ──────────────────────────────────────────── */
+.content .md-h1,
+.content .md-h2 {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.3rem;
+}
+
+.content .md-p { margin: 0.75rem 0; }
+
+.content .md-quote {
+  border-left: 3px solid var(--border);
+  margin: 0.75rem 0;
+  padding-left: 1rem;
+  color: var(--text-muted);
+}
+
+.content .md-code {
+  background: var(--bg-alt);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-family: 'Cascadia Code', 'Fira Code', monospace;
+}
+
+.content .code-block {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  font-family: 'Cascadia Code', 'Fira Code', monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.content .code-block code {
+  background: none;
+  padding: 0;
+}
+
+.content ul {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.content ul ul { margin: 0.25rem 0; }
+.content li { margin: 0.2rem 0; }
+
+.content .md-hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0;
+}   

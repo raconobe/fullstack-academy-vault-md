@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My Site</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Shell — no content, no logic -->
+    <div id="app">
+      <div data-include="partials/header.html"></div>
+
+      <main>
+        <!-- Dynamic slots — filled by main.js -->
+        <section id="hero" data-component="hero"></section>
+        <section id="cards" data-component="cards"></section>
+        <section id="content" data-component="content"></section>
+      </main>
+
+      <!-- index.html — put critical content directly in HTML -->
+      <main>
+        <section id="hero">
+          <h1>Welcome to My Site</h1>
+          <p class="subtitle">Built with plain HTML + Web Components</p>
+        </section>
+
+        <!-- Cards: JS-enhanced, but first one is in HTML -->
+        <section id="cards">
+          <my-card title="Card One" body="First item" tag="featured"></my-card>
+          <!-- JS appends the rest -->
+        </section>
+
+        <section id="content">
+          <!-- Static fallback, JS replaces with markdown -->
+          <h1>About Us</h1>
+          <p>This page is written in Markdown and rendered client-side.</p>
+        </section>
+      </main>
+      <!-- index.html — put critical content directly in HTML -->
+<button id="theme-toggle">🌙</button>   
+
+
+      <div data-include="partials/footer.html"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

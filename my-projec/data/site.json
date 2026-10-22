@@ -1,0 +1,15 @@
+{
+  "siteName": "My Site",
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "About", "href": "/about" },
+    { "label": "Blog", "href": "/blog" }
+  ],
+  "footer": {
+    "copyright": "© 2026 My Site",
+    "links": [
+      { "label": "Privacy", "href": "/privacy" },
+      { "label": "Terms", "href": "/terms" }
+    ]
+  }
+}   

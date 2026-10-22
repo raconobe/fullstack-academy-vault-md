@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <body>
+    <h1>Pub/Sub — Baby Steps</h1>
+
+    <button id="theme-btn">Toggle Theme</button>
+    <button id="counter-btn">Add Item to Cart</button>
+
+    <div id="nav" style="padding: 1rem; margin: 1rem 0; border: 1px solid #ccc">
+      Nav bar
+    </div>
+
+    <div
+      id="cart-badge"
+      style="padding: 1rem; margin: 1rem 0; border: 1px solid #ccc"
+    >
+      Cart: 0
+    </div>
+
+    <script type="module">
+      // ─── STORE (in the same file for this demo) ───────────
+      const store = {
+        _state: {},
+        _listeners: {},
+        get(key) {
+          return this._state[key];
+        },
+        set(key, value) {
+          this._state[key] = value;
+          (this._listeners[key] || []).forEach((fn) => fn(value));
+        },
+        on(key, fn) {
+          (this._listeners[key] ||= []).push(fn);
+        },
+      };
+
+      // ─── "COMPONENT A" — Nav bar reacts to theme ──────────
+      const nav = document.getElementById("nav");
+      store.on("theme", (val) => {
+        nav.style.background = val === "dark" ? "#222" : "#f5f5f5";
+        nav.style.color = val === "dark" ? "#fff" : "#222";
+        nav.textContent = `Nav bar (theme: ${val})`;
+      });
+
+      // ─── "COMPONENT B" — Cart badge reacts to cart ────────
+      const badge = document.getElementById("cart-badge");
+      store.on("cart", (count) => {
+        badge.textContent = `Cart: ${count}`;
+      });
+
+      // ─── PUBLISHERS ────────────────────────────────────────
+      document.getElementById("theme-btn").addEventListener("click", () => {
+        const next = store.get("theme") === "dark" ? "light" : "dark";
+        store.set("theme", next); // ← notifies nav
+      });
+
+      document.getElementById("counter-btn").addEventListener("click", () => {
+        const count = (store.get("cart") || 0) + 1;
+        store.set("cart", count); // ← notifies badge
+      });
+
+      btn.addEventListener("click", () => {
+        store.set("theme", store.get("theme") === "dark" ? "light" : "dark");
+      });
+
+      // ─── Initial state ────────────────────────────────────
+      store.set("theme", "light");
+      store.set("cart", 0);
+    </script>
+  </body>
+</html>

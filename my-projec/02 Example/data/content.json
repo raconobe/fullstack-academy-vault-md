@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "title": "Welcome to My Site",
+    "subtitle": "Built with plain HTML + Web Components"
+  },
+  "cards": [
+    { "title": "Card One", "body": "First item", "tag": "featured" },
+    { "title": "Card Two", "body": "Second item", "tag": "new" },
+    { "title": "Card Three", "body": "Third item", "tag": "draft" }
+  ],
+  "contentFile": "content/about.md"
+}   

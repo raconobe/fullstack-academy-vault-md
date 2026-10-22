@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HTML Includes Demo</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      header,
+      footer {
+        background: #f0f0f0;
+        padding: 1rem;
+        margin: 1rem 0;
+      }
+      .card {
+        border: 1px solid #ccc;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        border-radius: 4px;
+      }
+      .card h3 {
+        margin: 0 0 0.5rem;
+      }
+      section {
+        margin: 2rem 0;
+      }
+      h2 {
+        border-bottom: 2px solid #333;
+        padding-bottom: 0.3rem;
+      }
+      .btn-primary {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+      }
+      .btn-secondary {
+        background: #6c757d;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ========== 1. STATIC INCLUDES (data-include) ========== -->
+    <div data-include="partials/header.html"></div>
+
+    <main>
+      <h1>HTML Includes Demo</h1>
+
+      <!-- ========== 2. JS "MIXIN" (parameterized function) ========== -->
+      <section>
+        <h2>JS Mixin — createCard()</h2>
+        <div id="cards"></div>
+      </section>
+
+      <!-- ========== 3. WEB COMPONENT (custom tag) ========== -->
+      <section>
+        <h2>Web Component — &lt;my-card&gt;</h2>
+        <my-card
+          title="Web Card 1"
+          body="Created with customElements.define()"
+        ></my-card>
+        <my-card
+          title="Web Card 2"
+          body="Looks like a native HTML tag"
+        ></my-card>
+      </section>
+
+      <!-- ========== 4. WEB COMPONENT with SLOTS ========== -->
+      <section>
+        <h2>Web Component with Slot</h2>
+        <my-card title="Slot Card">
+          <p>Custom content goes <strong>inside</strong> the slot.</p>
+        </my-card>
+      </section>
+    </main>
+
+    <!-- ========== 5. FOOTER INCLUDE ========== -->
+    <div data-include="partials/footer.html"></div>
+
+    <!-- Scripts (order matters) -->
+    <script src="include.js"></script>
+    <script src="components.js"></script>
+    <script src="my-card.js"></script>
+
+    <script>
+      // Run the mixin example
+      const container = document.getElementById("cards");
+      container.append(
+        createCard("Mixin Card 1", "Created by a plain JS function"),
+      );
+      container.append(
+        createCard("Mixin Card 2", "Pass different data each time"),
+      );
+    </script>
+  </body>
+</html>
