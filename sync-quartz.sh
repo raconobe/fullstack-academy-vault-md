@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define base paths using the $HOME variable
-VAULT_PATH="$HOME/Desktop/FullStack-Academy-Vault-MD"
+VAULT_PATH="$HOME/Desktop/fullstack-academy-vault-md"
 QUARTZ_CONTENT="$HOME/Desktop/fullstack-academy-site-quartz/quartz/content"
 QUARTZ_DIR="$HOME/Desktop/fullstack-academy-site-quartz/quartz"
 

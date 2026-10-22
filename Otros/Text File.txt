@@ -1,0 +1,11 @@
+CREATE DATABASE app_crud_db;
+CREATE USER 'app_crud_user'@'localhost' IDENTIFIED BY '123';
+GRANT ALL PRIVILEGES ON app_crude_db.* TO 'app_crude_user'@'localhost';
+FLUSH PRIVILEGES;
+
+
+
+CREATE USER 'pma_admin'@'localhost' IDENTIFIED BY '123';
+GRANT ALL PRIVILEGES ON *.* TO 'pma_admin'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EXIT;
