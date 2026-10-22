@@ -264,8 +264,8 @@ Aquí tienes la lista detallada de recursos prácticos con sus enlaces directos:
 
 ### 3. Matriz de Proyectos Recomendados
 
-|**Nivel**|**Proyecto Recomendado**|**ConceptosClave**|
-|---|---|---|
-|**Intermedio**|**CLI Tool en C / Python**|Parsing de argumentos, I/O de archivos, procesamiento de streams.|
-|**Full Stack**|**CRUD PHP / Laravel + SQLite**|Autenticación basada en sesiones, migraciones, ORM, protección CSRF/XSS.|
-|**Avanzado**|**Motor de Reglas / Parser**|Estructuras de datos (árboles/grafos), evaluación de expresiones, lógica condicional.|
+| **Nivel**      | **Proyecto Recomendado**        | **ConceptosClave**                                                                    |
+| -------------- | ------------------------------- | ------------------------------------------------------------------------------------- |
+| **Intermedio** | **CLI Tool en C / Python**      | Parsing de argumentos, I/O de archivos, procesamiento de streams.                     |
+| **Full Stack** | **CRUD PHP / Laravel + SQLite** | Autenticación basada en sesiones, migraciones, ORM, protección CSRF/XSS.              |
+| **Avanzado**   | **Motor de Reglas / Parser**    | Estructuras de datos (árboles/grafos), evaluación de expresiones, lógica condicional. |
